@@ -1,0 +1,125 @@
+.signup {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .detail {
+    font-size: 8px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    width: 450px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    .remark {
+      color: red;
+    }
+
+    .non-remark {
+      color: #aca4a4;
+    }
+  }
+
+  .joinbtn {
+    border: none;
+    background-color: #2d71f7;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    margin: 45px 3px 3px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  .pre-number,
+  .birthyear,
+  .birthmonth,
+  .birthday {
+    padding: 10px;
+    margin: 3px;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+  }
+
+  .personalInfo {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+
+    .input {
+      border: 1px solid #eeeeee;
+      margin: 3px;
+      padding: 10px;
+      height: 15px;
+      border-radius: 5px;
+    }
+
+    .mobile-number {
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      justify-content: space-between;
+
+      .pre-number {
+        width: 100px;
+      }
+
+      .mobile {
+        width: 350px;
+      }
+    }
+
+    .birth {
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      justify-content: space-between;
+
+      .birthyear {
+        width: 100px;
+      }
+
+      .birthday,
+      .birthmonth {
+        width: 180px;
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 480px;
+
+    .back-btn {
+      border: none;
+      background-color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  }
+
+  .header-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 450px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    .title {
+      font-weight: bold;
+    }
+  }
+}
