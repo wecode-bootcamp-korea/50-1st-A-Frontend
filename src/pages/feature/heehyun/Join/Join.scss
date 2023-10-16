@@ -1,5 +1,6 @@
 .signup {
   width: 100%;
+  min-width: 320px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -59,7 +60,6 @@
       border: 1px solid #eeeeee;
       margin: 3px;
       padding: 10px;
-      height: 15px;
       border-radius: 5px;
     }
 
