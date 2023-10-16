@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import "./Login.scss";
-import logo1 from "./Logo.png";
-import logo2 from "./logo_wecode.png";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import './Login.scss';
+import logo1 from './Logo.png';
+import logo2 from './logo_wecode.png';
+import { useNavigate } from 'react-router-dom';
 // import { Link } from "react-router-dom";
 
 const Login = () => {
   // 라우터를 통해 네비게이트 함수 활성화
   const navigate = useNavigate();
 
-  // 이메일, 비밀번호 저장할 State 사용 
+  // 이메일, 비밀번호 저장할 State 사용
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -67,23 +67,46 @@ const Login = () => {
       </div>
 
       <div className="email-password">
-        <input onKeyUp={passedLogin} className="input" type="text" placeholder="이메일" value={email} onChange={setChangeEmail} onKeyPress={handleOnClick}></input>
+        <input
+          onKeyUp={passedLogin}
+          className="input"
+          type="text"
+          placeholder="이메일"
+          value={email}
+          onChange={setChangeEmail}
+          onKeyPress={handleOnClick}
+        />
 
-        <input onKeyUp={passedLogin} className="input" type="password" placeholder="비밀번호" value={password} onChange={setChangePassword} onKeyPress={handleOnClick}></input>
+        <input
+          onKeyUp={passedLogin}
+          className="input"
+          type="password"
+          placeholder="비밀번호"
+          value={password}
+          onChange={setChangePassword}
+          onKeyPress={handleOnClick}
+        />
 
         {/* 로그인이 가능하면 초록색으로 전환 */}
         <button
-          onClick={goToMain} className={!active ? "loginbtn" : "loginbtn-access"} disabled={!active}>로그인</button>
+          onClick={goToMain}
+          className={!active ? 'loginbtn' : 'loginbtn-access'}
+          disabled={!active}
+        >
+          로그인
+        </button>
       </div>
 
       <div className="buttons">
-        <button onClick={goToJoin} className="btn join">회원 가입</button>
+        <button onClick={goToJoin} className="btn join">
+          회원 가입
+        </button>
 
         <div>|</div>
 
         <button className="btn find">비밀번호 찾기</button>
       </div>
-    </div >
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
-import React from "react";
-import "./Join.scss";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import './Join.scss';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Join = () => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const Join = () => {
   const [user, setUser] = useState([]);
 
   const goToLogin = () => {
-    navigate("/");
+    navigate('/');
   };
 
   const signUp = () => {
@@ -54,31 +54,31 @@ const Join = () => {
 
       setUser([...user, newUser]);
       alert('회원가입이 완료되었습니다!');
-      navigate("/");
+      navigate('/');
     }
   };
 
   const [form, setForm] = useState({
-    year: "연도",
-    month: "월",
-    day: "일",
+    year: '연도',
+    month: '월',
+    day: '일',
   });
 
   const now = new Date();
 
   let years = [];
   for (let y = now.getFullYear(); y >= 1930; y -= 1) {
-    years.push(y.toString() + "년");
+    years.push(y.toString() + '년');
   }
 
   let months = [];
   for (let m = 1; m <= 12; m += 1) {
-    months.push(m.toString() + "월");
+    months.push(m.toString() + '월');
   }
 
   let days = [];
   for (let d = 1; d <= 31; d += 1) {
-    days.push(d.toString() + "일");
+    days.push(d.toString() + '일');
   }
 
   return (
@@ -87,12 +87,12 @@ const Join = () => {
         <button onClick={goToLogin} className="back-btn">
           ﹤ 뒤로
         </button>
-        <div></div>
+        <div />
       </div>
 
       <div className="header-title">
         <div className="title">회원가입</div>
-        <div></div>
+        <div />
       </div>
 
       <div className="personalInfo">
@@ -106,7 +106,7 @@ const Join = () => {
           className="input email"
           type="text"
           placeholder="이메일"
-        ></input>
+        />
 
         <input
           className="input password"
@@ -114,7 +114,7 @@ const Join = () => {
           placeholder="비밀번호"
           onChange={setChangePassword}
           value={password}
-        ></input>
+        />
 
         <input
           className="input password-verify"
@@ -122,7 +122,7 @@ const Join = () => {
           placeholder="비밀번호 확인"
           onChange={setChangePasswordVerify}
           value={passwordVerify}
-        ></input>
+        />
 
         <div className="detail">
           <div>닉네임과 프로필 이미지</div>
@@ -134,7 +134,7 @@ const Join = () => {
           placeholder="닉네임"
           onChange={setChangeNickname}
           value={nickname}
-        ></input>
+        />
 
         <div className="detail">
           <div>전화번호</div>
@@ -154,7 +154,7 @@ const Join = () => {
             placeholder="휴대폰 번호를 입력해주세요."
             onChange={setChangeMobileNumber}
             value={mobileNumber}
-          ></input>
+          />
         </div>
 
         <div className="detail">
@@ -197,9 +197,7 @@ const Join = () => {
           </select>
         </div>
 
-        <button
-          onClick={signUp}
-          className="joinbtn">
+        <button onClick={signUp} className="joinbtn">
           회원 가입
         </button>
       </div>
