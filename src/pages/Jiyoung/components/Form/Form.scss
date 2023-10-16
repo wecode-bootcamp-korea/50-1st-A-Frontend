@@ -1,0 +1,86 @@
+form {
+  width: 100%;
+}
+fieldset {
+  ~ fieldset {
+    padding-top: 24px;
+  }
+}
+.formTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .title {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .subTitle {
+    font-size: 12px;
+    color: #999;
+  }
+  &.required {
+    .subTitle {
+      color: #ff3636;
+    }
+  }
+  ~ .formBlock,
+  ~ .formInput {
+    padding-top: 8px;
+  }
+}
+.formBlock {
+  display: grid;
+  &.number {
+    grid-template-columns: 2fr 3fr 3fr;
+    .formInput {
+      grid-column: 2 / 4;
+      grid-row: 1 / 2;
+    }
+  }
+  &.birthday {
+    grid-template-columns: 2fr 3fr 3fr;
+  }
+}
+.formInput {
+  ~ .formInput {
+    padding-top: 8px;
+  }
+  .formLabel {
+    display: block;
+  }
+  .formControl {
+    width: 100%;
+    height: 56px;
+    padding: 19px 16px 15px 16px;
+    font-size: 16px;
+    line-height: 22px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #fff;
+    box-sizing: border-box;
+    &::placeholder {
+      color: #999;
+    }
+  }
+}
+.formSelect {
+  .formControl {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 56px;
+    padding: 16px 38px 16px 16px;
+    font-size: 16px;
+    color: #999;
+    border-color: #e0e0e0;
+    border-radius: 6px;
+    background: url(../../images/icon/icon_arrow_24.png) no-repeat;
+    background-position: calc(100% - 14px) 50%;
+    background-color: #fff;
+    appearance: none;
+  }
+  ~ .formSelect,
+  ~ .formInput {
+    margin-left: 8px;
+  }
+}

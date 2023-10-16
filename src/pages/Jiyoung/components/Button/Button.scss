@@ -1,0 +1,99 @@
+@import '../../scss/variables';
+
+.btnArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  &.btnFull {
+    > .btn {
+      width: 100%;
+    }
+  }
+  &.btnRight {
+    justify-content: right;
+  }
+  &.btnLeft {
+    justify-content: left;
+  }
+  &.btnBetween {
+    justify-content: space-between;
+  }
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
+  padding: 0 10px;
+  cursor: pointer;
+  > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &.btnPrimary {
+    height: 56px;
+    font-weight: 800;
+    font-size: 18px;
+    color: $white;
+    border-radius: 6px;
+    background-color: $blue;
+    &:active,
+    &:hover {
+      background-color: $navy;
+    }
+    &:disabled {
+      background-color: $gray80;
+    }
+  }
+  &.btnLine {
+    height: 56px;
+    font-weight: 800;
+    font-size: 18px;
+    color: $blue;
+    border: 1px solid $blue;
+    border-radius: 6px;
+    background-color: $white;
+    &:active,
+    &:hover {
+      color: $navy;
+      border: 1px solid $navy;
+    }
+    &:disabled {
+      color: $gray80;
+      border: 1px solid $gray80;
+    }
+  }
+  &.btnText {
+    position: relative;
+    min-width: 96px;
+    font-size: 14px;
+    ~ .btnText {
+      // margin-left: 24px;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 16px;
+        margin-right: 24px;
+        background-color: $gray88;
+      }
+      span {
+        // margin-left: 24px;
+      }
+    }
+  }
+  &.btnSm {
+    width: 96px;
+    height: 40px;
+  }
+  &.btnMd {
+    height: 48px;
+  }
+  &.btnLg {
+    height: 50px;
+  }
+}
