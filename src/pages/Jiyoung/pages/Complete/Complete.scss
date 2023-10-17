@@ -1,0 +1,35 @@
+@import '../../scss/variables';
+
+.result {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px);
+  .resultArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    &.complete {
+      &::before {
+        content: '';
+        display: block;
+        width: 136px;
+        height: 136px;
+        background: url(../../images/icon/icon_complete_136.png) center / 136px
+          no-repeat;
+      }
+    }
+    .message {
+      padding-top: 40px;
+      font-weight: 800;
+      font-size: 24px;
+    }
+    .subMessage {
+      display: block;
+      padding-top: 16px;
+      font-size: 20px;
+      color: $grey60;
+    }
+  }
+}
