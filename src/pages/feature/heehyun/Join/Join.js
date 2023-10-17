@@ -2,6 +2,7 @@ import React from 'react';
 import './Join.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import backArrow from './Back_arrow.png';
 
 const Join = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Join = () => {
   const [passwordVerify, setPasswordVerify] = useState('');
   const [nickname, setNickname] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
+  const [profileImage, setProfileImage] = useState('');
 
   const setChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -30,6 +32,10 @@ const Join = () => {
 
   const setChangeMobileNumber = (event) => {
     setMobileNumber(event.target.value);
+  };
+
+  const setChangeProfileImage = (event) => {
+    setProfileImage(event.target.value);
   };
 
   const [user, setUser] = useState([]);
@@ -54,7 +60,7 @@ const Join = () => {
 
       setUser([...user, newUser]);
       alert('회원가입이 완료되었습니다!');
-      navigate('/');
+      navigate('/Complete');
     }
   };
 
@@ -82,121 +88,151 @@ const Join = () => {
   }
 
   return (
-    <div className="signup">
+    <div className="signUp">
       <div className="header">
         <button onClick={goToLogin} className="back-btn">
-          ﹤ 뒤로
+          <img src={backArrow} alt="뒤로가기 버튼" />
+          <div>뒤로</div>
         </button>
         <div />
       </div>
 
-      <div className="header-title">
-        <div className="title">회원가입</div>
-        <div />
-      </div>
+      <div className="container">
+        <div className="pageTitle">회원가입</div>
 
-      <div className="personalInfo">
-        <div className="detail">
-          <div>기본 정보</div>
-          <div className="remark">필수 사항</div>
-        </div>
-        <input
-          onChange={setChangeEmail}
-          value={email}
-          className="input email"
-          type="text"
-          placeholder="이메일"
-        />
-
-        <input
-          className="input password"
-          type="password"
-          placeholder="비밀번호"
-          onChange={setChangePassword}
-          value={password}
-        />
-
-        <input
-          className="input password-verify"
-          type="password"
-          placeholder="비밀번호 확인"
-          onChange={setChangePasswordVerify}
-          value={passwordVerify}
-        />
-
-        <div className="detail">
-          <div>닉네임과 프로필 이미지</div>
-          <div className="non-remark">선택 사항</div>
-        </div>
-        <input
-          className="input nickname"
-          type="text"
-          placeholder="닉네임"
-          onChange={setChangeNickname}
-          value={nickname}
-        />
-
-        <div className="detail">
-          <div>전화번호</div>
-          <div className="non-remark">선택 사항</div>
-        </div>
-        <div className="mobile-number">
-          <select className="pre-number">
-            <option>010</option>
-            <option>011</option>
-            <option>016</option>
-            <option>017</option>
-            <option>019</option>
-          </select>
+        <div className="basicInfo">
+          <div className="label">
+            <div className="labelTitle">기본 정보</div>
+            <div className="remark">필수 사항</div>
+          </div>
           <input
-            className="input mobile"
+            onChange={setChangeEmail}
+            value={email}
+            className="input email"
             type="text"
-            placeholder="휴대폰 번호를 입력해주세요."
-            onChange={setChangeMobileNumber}
-            value={mobileNumber}
+            placeholder="이메일"
+          />
+
+          <input
+            className="input password"
+            type="password"
+            placeholder="비밀번호"
+            onChange={setChangePassword}
+            value={password}
+          />
+
+          <input
+            className="input password-verify"
+            type="password"
+            placeholder="비밀번호 확인"
+            onChange={setChangePasswordVerify}
+            value={passwordVerify}
           />
         </div>
 
-        <div className="detail">
-          <div>생일</div>
-          <div className="non-remark">선택 사항</div>
-        </div>
-        <div className="birth">
-          <select
-            className="birthyear"
-            value={form.year}
-            onChange={(e) => setForm({ ...form, year: e.target.value })}
-          >
-            {years.map((item) => (
-              <option value={item} key={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-          <select
-            className="birthmonth"
-            value={form.month}
-            onChange={(e) => setForm({ ...form, month: e.target.value })}
-          >
-            {months.map((item) => (
-              <option value={item} key={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-          <select
-            className="birthday"
-            value={form.day}
-            onChange={(e) => setForm({ ...form, day: e.target.value })}
-          >
-            {days.map((item) => (
-              <option value={item} key={item}>
-                {item}
-              </option>
-            ))}
-          </select>
+        <div className="nick">
+          <div className="label">
+            <div className="labelTitle">닉네임과 프로필 이미지</div>
+            <div className="option">선택 사항</div>
+          </div>
+          <input
+            className="input nickname"
+            type="text"
+            placeholder="닉네임"
+            onChange={setChangeNickname}
+            value={nickname}
+          />
+
+          <div className="fileUpload">
+            <label for="imageId" className="imageInputBtn">
+              파일 선택
+            </label>
+            <input
+              type="text"
+              className="filePath"
+              placeholder="파일을 선택해주세요."
+              value={profileImage}
+            />
+            <input
+              type="file"
+              id="imageId"
+              className="profileImage"
+              onChange={setChangeProfileImage}
+            />
+          </div>
         </div>
 
+        <div className="phone">
+          <div className="label">
+            <div className="labelTitle">전화번호</div>
+            <div className="option">선택 사항</div>
+          </div>
+
+          <div className="phoneNumber">
+            <select className="pre-number">
+              <option>010</option>
+              <option>011</option>
+              <option>016</option>
+              <option>017</option>
+              <option>019</option>
+            </select>
+            <input
+              className="input mobile"
+              type="text"
+              placeholder="휴대폰 번호를 입력해주세요."
+              onChange={setChangeMobileNumber}
+              value={mobileNumber}
+            />
+          </div>
+        </div>
+
+        <div className="birthday">
+          <div className="label">
+            <div className="labelTitle">생일</div>
+            <div className="option">선택 사항</div>
+          </div>
+
+          <div className="birth">
+            <select
+              className="year"
+              value={form.year}
+              onChange={(e) => setForm({ ...form, year: e.target.value })}
+            >
+              {years.map((item) => (
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+
+            <select
+              className="month"
+              value={form.month}
+              onChange={(e) => setForm({ ...form, month: e.target.value })}
+            >
+              {months.map((item) => (
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+
+            <select
+              className="day"
+              value={form.day}
+              onChange={(e) => setForm({ ...form, day: e.target.value })}
+            >
+              {days.map((item) => (
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div className="action">
         <button onClick={signUp} className="joinbtn">
           회원 가입
         </button>

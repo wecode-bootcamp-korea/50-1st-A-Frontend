@@ -1,125 +1,335 @@
-.signup {
+.signUp {
   width: 100%;
-  min-width: 320px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-  .detail {
-    font-size: 8px;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: space-between;
-    width: 450px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-
-    .remark {
-      color: red;
-    }
-
-    .non-remark {
-      color: #aca4a4;
-    }
-  }
-
-  .joinbtn {
-    border: none;
-    background-color: #2d71f7;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    margin: 45px 3px 3px 3px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  &:active {
-    opacity: 0.8;
-  }
-
-  .pre-number,
-  .birthyear,
-  .birthmonth,
-  .birthday {
-    padding: 10px;
-    margin: 3px;
-    border: 1px solid #eeeeee;
-    border-radius: 5px;
-  }
-
-  .personalInfo {
-    width: 450px;
-    display: flex;
-    flex-direction: column;
-
-    .input {
-      border: 1px solid #eeeeee;
-      margin: 3px;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    .mobile-number {
-      display: flex;
-      flex-direction: row;
-      text-align: center;
-      justify-content: space-between;
-
-      .pre-number {
-        width: 100px;
-      }
-
-      .mobile {
-        width: 350px;
-      }
-    }
-
-    .birth {
-      display: flex;
-      flex-direction: row;
-      text-align: center;
-      justify-content: space-between;
-
-      .birthyear {
-        width: 100px;
-      }
-
-      .birthday,
-      .birthmonth {
-        width: 180px;
-      }
-    }
-  }
+  gap: 24px;
+  flex-shrink: 0;
+  padding: 24px 0 40px 0;
 
   .header {
+    height: 56px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    padding: 8px 0 8px 16px;
     align-items: center;
-    width: 480px;
+    flex-shrink: 0;
+    align-self: stretch;
 
     .back-btn {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      align-items: center;
       border: none;
       background-color: white;
-      font-size: 15px;
       cursor: pointer;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+
+      div {
+        font-size: 20px;
+        line-height: 28px;
+      }
     }
   }
 
-  .header-title {
+  .container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 450px;
-    margin-top: 25px;
-    margin-bottom: 10px;
+    padding: 0px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1 0 0;
+    align-self: stretch;
 
-    .title {
-      font-weight: bold;
+    .pageTitle {
+      padding: 6px 0px;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .basicInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      align-self: stretch;
+
+      .label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+
+        .labelTitle {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 22px;
+        }
+
+        .remark {
+          font-size: 12px;
+          color: red;
+        }
+      }
+
+      input {
+        display: flex;
+        height: 56px;
+        border: 1px solid #E0E0E0;
+        border-radius: 6px;
+        padding: 19px 0px 15px 16px;
+        align-self: stretch;
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+
+    .nick {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      align-self: stretch;
+
+      .label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+
+        .labelTitle {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 22px;
+        }
+
+        .option {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+
+      input {
+        display: flex;
+        height: 56px;
+        padding: 19px 0 15px 16px;
+        align-items: center;
+        align-self: stretch;
+        border: 1px solid #E0E0E0;
+        border-radius: 6px;
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      .fileUpload {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        align-self: stretch;
+
+        .profileImage {
+          display: none;
+        }
+
+        .filePath {
+          display: flex;
+          height: 40px;
+          padding: 8px 16px 8px 16px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 2px;
+          flex: 1 0 0;
+          border-radius: 4px;
+          border: 1px solid #E6E6E6;
+          font-size: 14px;
+        }
+
+        .imageInputBtn {
+          display: flex;
+          padding: 12px 21px 11px 22px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 4px;
+          border: 1px solid #999;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .phone {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      align-self: stretch;
+
+      .label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+
+        .labelTitle {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 22px;
+        }
+
+        .option {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+
+      .phoneNumber {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        align-self: stretch;
+
+        select {
+          display: flex;
+          width: 136px;
+          height: 56px;
+          padding: 16px 0 15px 16px;
+          justify-content: center;
+          align-items: flex-end;
+          gap: 56px;
+          border: 1px solid #E0E0E0;
+          border-radius: 6px;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 22px;
+          color: #999;
+        }
+
+        input {
+          display: flex;
+          height: 56px;
+          padding: 19px 0 15px 16px;
+          align-items: center;
+          flex: 1 0 0;
+          color: #999;
+          border: 1px solid #E0E0E0;
+          border-radius: 6px;
+          font-size: 16px;
+          line-height: 22px;
+        }
+      }
+    }
+
+    .birthday {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      align-self: stretch;
+
+      .label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+
+        .labelTitle {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 22px;
+        }
+
+        .option {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+
+      .birth {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        align-self: stretch;
+
+        .year {
+          width: 136px;
+          height: 56px;
+          border: 1px solid #E0E0E0;
+          border-radius: 6px;
+          padding: 16px 14px 15px 16px;
+          justify-content: center;
+          align-items: flex-end;
+          gap: 35px;
+          color: #999;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 22px;
+        }
+
+        .month {
+          height: 56px;
+          border: 1px solid #E0E0E0;
+          border-radius: 6px;
+          padding: 16px 14px 15px 16px;
+          justify-content: center;
+          align-items: flex-end;
+          gap: 114px;
+          flex: 1 0 0;
+          color: #999;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 22px;
+        }
+
+        .day {
+          height: 56px;
+          border: 1px solid #E0E0E0;
+          border-radius: 6px;
+          padding: 16px 14px 15px 16px;
+          justify-content: center;
+          align-items: flex-end;
+          gap: 114px;
+          flex: 1 0 0;
+          color: #999;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 22px;
+        }
+      }
     }
   }
+
+  .action {
+    display: flex;
+    padding: 0 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+
+    .joinbtn {
+      display: flex;
+      height: 56px;
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      border: none;
+      border-radius: 6px;
+      background-color: #2D71F7;
+      color: white;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+
+      &:active,
+      &:hover {
+        background-color: #083E7F;
+      }
+    }
+  }
+
 }

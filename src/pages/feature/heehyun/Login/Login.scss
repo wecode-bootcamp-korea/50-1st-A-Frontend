@@ -1,82 +1,106 @@
-// @import '../../styles/variable.scss';
-
 .login {
   width: 100%;
-  min-width: 320px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // @include flexSort(column, center, center);
 
   .logo-board {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // @include flexSort(column, center, center);
-    width: 450px;
-    height: 300px;
-    margin: 0 auto 50px auto;
+    gap: 24px;
+    flex: 1 0 0;
+    align-self: stretch;
   }
 
   .email-password {
     display: flex;
     flex-direction: column;
-    width: 480px;
+    justify-content: flex-end;
+    align-self: stretch;
+    width: 100%;
+    padding: 0 24px;
+    gap: 8px;
 
     .input {
-      border: 1px solid #eeeeee;
-      margin: 3px;
-      padding: 10px;
-      border-radius: 5px;
+      border: 1px solid #E0E0E0;
+      padding: 19px 0 15px 16px;
+      border-radius: 6px;
+      color: #999;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      font-feature-settings: 'clig' off, 'liga' off;
     }
 
     .loginbtn {
       border: none;
-      background-color: #2d71f7;
+      background-color: #CCC;
       color: white;
-      font-weight: bold;
-      margin: 10px 5px 5px 5px;
       height: 35px;
-      border-radius: 5px;
+      border-radius: 6px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      font-size: 18px;
+      font-weight: 800;
+      margin-top: 8px;
+      margin-bottom: 16px;
       cursor: pointer;
     }
 
     .loginbtn-access {
       border: none;
-      background-color: #56ad7e;
+      background-color: #2d71f7;
       color: white;
-      font-weight: bold;
-      margin: 10px 5px 5px 5px;
       height: 35px;
-      border-radius: 5px;
+      border-radius: 6px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      font-size: 18px;
+      font-weight: 800;
+      margin-top: 8px;
+      margin-bottom: 16px;
       cursor: pointer;
+
+      &:active,
+      &:hover {
+        background-color: #083E7F;
+      }
     }
 
-    &:active {
-      opacity: 0.8;
-    }
+
   }
 }
 
 .buttons {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 240px;
+  margin-bottom: 40px;
   // @include flexSort(row, 0, 0);
-  margin-top: 5px;
 
   .btn {
     border: none;
+    width: 96px;
     background-color: white;
-    font-size: 10px;
+    font-size: 14px;
+    font-weight: 400;
     cursor: pointer;
   }
 
   div {
-    font-weight: lighter;
-    color: #eeeeee;
-    margin: 0 15px 0 15px;
+    color: #E0E0E0;
+    height: 16px;
   }
 }
