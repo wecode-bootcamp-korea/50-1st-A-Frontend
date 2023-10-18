@@ -23,6 +23,11 @@
       gap: 24px;
       align-self: stretch;
       overflow-y: scroll;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
       .post {
         display: flex;

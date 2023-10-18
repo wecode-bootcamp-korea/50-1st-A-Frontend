@@ -6,6 +6,7 @@ import SingUp from './pages/feature/heehyun/Join/Join';
 import Complete from './pages/feature/heehyun/Complete/Complete';
 import PostAdd from './pages/feature/heehyun/PostAdd/PostAdd';
 import PostEdit from './pages/feature/heehyun/PostEdit/PostEdit';
+import PostDetail from './pages/feature/heehyun/PostDetail/PostDetail';
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
         <Route path="/complete" element={<Complete />} />
         <Route path="/postAdd" element={<PostAdd />} />
         <Route path="/postEdit" element={<PostEdit />} />
+        <Route path="/postDetail" element={<PostDetail />} />
       </Routes>
     </BrowserRouter>
   );

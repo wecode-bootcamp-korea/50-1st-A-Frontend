@@ -38,7 +38,7 @@ const Join = () => {
     setProfileImage(event.target.value);
   };
 
-  const [user, setUser] = useState([]);
+  // const [user, setUser] = useState([]);
 
   const goToLogin = () => {
     navigate('/');
@@ -49,18 +49,39 @@ const Join = () => {
       alert('이메일 형식이 아닙니다.');
     } else if (password !== passwordVerify) {
       alert('비밀번호가 다릅니다.');
+    } else if (password.length < 10) {
+      alert('비밀번호는 10자리 이상으로 설정해주세요.');
     } else {
-      const newUser = {
-        id: user.length + 1,
-        email: email,
-        password: password,
-        nickname: nickname,
-        mobileNumber: mobileNumber,
-      };
+      fetch('http://10.58.52.71:8000/Users/sign-up', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({
+          // id: user.length + 1,
+          email: email,
+          passoword: password,
+          // nickname: nickname,
+          // mobileNumber: mobileNumber,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.message === 'signup-success') {
+            alert('회원가입이 완료되었습니다.');
+            navigate('/Complete');
+          }
+        });
 
-      setUser([...user, newUser]);
-      alert('회원가입이 완료되었습니다!');
-      navigate('/Complete');
+      // const newUser = {
+      //   id: user.length + 1,
+      //   email: email,
+      //   password: password,
+      //   nickname: nickname,
+      //   mobileNumber: mobileNumber,
+      // };
+      // alert('회원가입이 완료되었습니다!');
+      // navigate('/Complete');
     }
   };
 
