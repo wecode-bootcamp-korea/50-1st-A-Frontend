@@ -1,0 +1,31 @@
+@import '../../scss/variables';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .listArea {
+    height: 100%;
+    overflow-y: auto;
+  }
+  .listItem {
+    border-bottom: 1px solid $gray90;
+    .threadArea {
+      display: flex;
+      flex-direction: column;
+      .threadTop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .threadProfile {
+          border: 1px solid red;
+          display: flex;
+          align-items: center;
+        }
+        img {
+          display: block;
+        }
+      }
+    }
+  }
+}

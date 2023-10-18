@@ -4,8 +4,9 @@ import KimCodeLogin from './pages/KimCode/Login/Login';
 import KimCodeMain from './pages/KimCode/Main/Main';
 // pages
 import JiyoungComplete from './pages/Jiyoung/pages/Complete/Complete';
-import JiyoungLogin from './pages/Jiyoung/pages/Login/Login';
 import JiyoungJoin from './pages/Jiyoung/pages/Join/Join';
+import JiyoungList from './pages/Jiyoung/pages/List/List';
+import JiyoungLogin from './pages/Jiyoung/pages/Login/Login';
 // component
 import LibButton from './pages/Jiyoung/components/Button/LibButton';
 import LibForm from './pages/Jiyoung/components/Form/LibForm';
@@ -17,8 +18,9 @@ const Router = () => {
         <Route path="/kimcode-login" element={<KimCodeLogin />} />
         <Route path="/kimcode-main" element={<KimCodeMain />} />
         <Route path="/jiyoung-complete" element={<JiyoungComplete />} />
-        <Route path="/jiyoung-login" element={<JiyoungLogin />} />
         <Route path="/jiyoung-join" element={<JiyoungJoin />} />
+        <Route path="/jiyoung-list" element={<JiyoungList />} />
+        <Route path="/jiyoung-login" element={<JiyoungLogin />} />
         <Route path="/jiyoung-button" element={<LibButton />} />
         <Route path="/jiyoung-form" element={<LibForm />} />
       </Routes>

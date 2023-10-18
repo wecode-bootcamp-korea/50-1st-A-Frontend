@@ -1,13 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import '../../scss/style.scss';
 
 const Join = () => {
   const navigate = useNavigate();
+  const [userId, setUserId] = useState('');
+  const [userPw, setUserPw] = useState('');
+  const emailPattern =
+    /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
   const backBtn = () => {
     navigate('/jiyoung-login');
   };
+
+  const emailCheck = () => {
+    if (emailPattern.test(userId)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const isUserInputValid = emailCheck() && userPw.length >= 5;
+
+  const completeBtn = () => {
+    fetch('http://10.58.52.85:8000/signUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: userId,
+        password: userPw,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message === 'JOIN_SUCCSESS') {
+          navigate('/jiyoung-complete');
+        } else {
+          alert('회원가입 실패!');
+        }
+      });
+  };
+
   return (
     <div className="page">
       <header className="header">
@@ -37,6 +74,8 @@ const Join = () => {
                     type="text"
                     className="formControl"
                     placeholder="이메일"
+                    onChange={(event) => setUserId(event.target.value)}
+                    value={userId}
                   />
                 </div>
                 <div className="formInput">
@@ -47,6 +86,8 @@ const Join = () => {
                     type="password"
                     className="formControl"
                     placeholder="비밀번호"
+                    onChange={(event) => setUserPw(event.target.value)}
+                    value={userPw}
                   />
                 </div>
                 <div className="formInput">
@@ -153,7 +194,12 @@ const Join = () => {
         </div>
         <div className="contentFooter">
           <div className="btnArea btnFull">
-            <Button btnPrimary btnLabel="회원 가입" />
+            <Button
+              btnPrimary
+              btnLabel="회원 가입"
+              disabled={!isUserInputValid}
+              onClick={completeBtn}
+            />
           </div>
         </div>
       </div>

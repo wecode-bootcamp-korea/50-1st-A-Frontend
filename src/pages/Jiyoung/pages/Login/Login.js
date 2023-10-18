@@ -24,6 +24,28 @@ const Login = () => {
 
   const isUserInputValid = emailCheck() && userPw.length >= 5;
 
+  const loginBtn = () => {
+    fetch('http://10.58.52.85:8000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: userId,
+        password: userPw,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message === 'LOGIN_SUCCSESS') {
+          localStorage.setItem('token', data.accessToken);
+          alert('로그인 성공!');
+        } else {
+          alert('로그인 실패!');
+        }
+      });
+  };
+
   return (
     <div className="page">
       <div className="content login">
@@ -64,7 +86,12 @@ const Login = () => {
             </form>
           </div>
           <div className="btnArea btnFull">
-            <Button btnPrimary btnLabel="로그인" disabled={!isUserInputValid} />
+            <Button
+              btnPrimary
+              btnLabel="로그인"
+              disabled={!isUserInputValid}
+              onClick={loginBtn}
+            />
           </div>
           <div className="btnArea">
             <Button btnText btnLabel="회원가입" onClick={joinBtn} />
