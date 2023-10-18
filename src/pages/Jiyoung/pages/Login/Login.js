@@ -14,14 +14,6 @@ const Login = () => {
     navigate('/jiyoung-join');
   };
 
-  const saveUserId = (event) => {
-    setUserId(event.target.value);
-  };
-
-  const saveUserPw = (event) => {
-    setUserPw(event.target.value);
-  };
-
   const emailCheck = () => {
     if (emailPattern.test(userId)) {
       return true;
@@ -52,7 +44,7 @@ const Login = () => {
                   type="email"
                   className="formControl"
                   placeholder="이메일"
-                  onChange={saveUserId}
+                  onChange={(event) => setUserId(event.target.value)}
                   value={userId}
                 />
               </div>
@@ -65,18 +57,18 @@ const Login = () => {
                   type="password"
                   className="formControl"
                   placeholder="비밀번호"
-                  onChange={saveUserPw}
+                  onChange={(event) => setUserPw(event.target.value)}
                   value={userPw}
                 />
               </div>
             </form>
           </div>
           <div className="btnArea btnFull">
-            <Button btnPrimary btnValue="로그인" disabled={!isUserInputValid} />
+            <Button btnPrimary btnLabel="로그인" disabled={!isUserInputValid} />
           </div>
           <div className="btnArea">
-            <Button btnText btnValue="회원가입" onClick={joinBtn} />
-            <Button btnText btnValue="비밀번호 찾기" />
+            <Button btnText btnLabel="회원가입" onClick={joinBtn} />
+            <Button btnText btnLabel="비밀번호 찾기" />
           </div>
         </div>
       </div>

@@ -4,12 +4,14 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 56px);
+
   .resultArea {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
+
     &.complete {
       &::before {
         content: '';
@@ -20,11 +22,13 @@
           no-repeat;
       }
     }
+
     .message {
       padding-top: 40px;
       font-weight: 800;
       font-size: 24px;
     }
+
     .subMessage {
       display: block;
       padding-top: 16px;

@@ -6,21 +6,21 @@ const LibButton = () => {
   return (
     <>
       <div className="btnArea btnFull">
-        <Button btnPrimary btnValue="Primary" />
+        <Button btnPrimary btnLabel="Primary" />
       </div>
       <div className="btnArea btnLeft">
-        <Button btnLine btnValue="Line" />
+        <Button btnLine btnLabel="Line" />
       </div>
       <div className="btnArea btnRight">
-        <Button btnLine btnValue="Line" />
+        <Button btnLine btnLabel="Line" />
       </div>
       <div className="btnArea btnBetween">
-        <Button btnPrimary btnValue="Primary" />
-        <Button btnPrimary btnValue="Primary" />
+        <Button btnPrimary btnLabel="Primary" />
+        <Button btnPrimary btnLabel="Primary" />
       </div>
       <div className="btnArea">
-        <Button btnText btnValue="Text1" />
-        <Button btnText btnValue="Text2" />
+        <Button btnText btnLabel="Text1" />
+        <Button btnText btnLabel="Text2" />
       </div>
     </>
   );

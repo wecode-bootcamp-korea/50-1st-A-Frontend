@@ -2,29 +2,18 @@ import React from 'react';
 import './Button.scss';
 
 const Button = (props) => {
-  const { btnValue, btnPrimary, btnLine, btnText, disabled } = props;
+  const { btnLabel, btnPrimary, btnLine, btnText, disabled } = props;
+  const _btnPrimary = btnPrimary ? 'btnPrimary' : '';
+  const _btnLine = btnLine ? 'btnLine' : '';
+  const _btnText = btnText ? 'btnText' : '';
   return (
-    <>
-      {/* 
-      버튼 공통
-      - btn-primary
-      - btn-line
-      - btn-text
-      - btn-block
-      - btn-inline
-      - btn width : 96, 120
-      - btn height : 40, 48, 50, 56
-    */}
-      <button
-        type="button"
-        className={`btn ${btnPrimary ? 'btnPrimary' : ''}${
-          btnLine ? 'btnLine' : ''
-        }${btnText ? 'btnText' : ''}`}
-        disabled={disabled}
-      >
-        <span>{btnValue}</span>
-      </button>
-    </>
+    <button
+      type="button"
+      className={`btn ${_btnPrimary}${_btnLine}${_btnText}`}
+      disabled={disabled}
+    >
+      <span>{btnLabel}</span>
+    </button>
   );
 };
 

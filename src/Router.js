@@ -16,11 +16,9 @@ const Router = () => {
       <Routes>
         <Route path="/kimcode-login" element={<KimCodeLogin />} />
         <Route path="/kimcode-main" element={<KimCodeMain />} />
-        {/* pages */}
         <Route path="/jiyoung-complete" element={<JiyoungComplete />} />
         <Route path="/jiyoung-login" element={<JiyoungLogin />} />
         <Route path="/jiyoung-join" element={<JiyoungJoin />} />
-        {/* components */}
         <Route path="/jiyoung-button" element={<LibButton />} />
         <Route path="/jiyoung-form" element={<LibForm />} />
       </Routes>

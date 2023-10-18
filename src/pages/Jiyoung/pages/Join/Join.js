@@ -153,7 +153,7 @@ const Join = () => {
         </div>
         <div className="contentFooter">
           <div className="btnArea btnFull">
-            <Button btnPrimary btnValue="회원 가입" />
+            <Button btnPrimary btnLabel="회원 가입" />
           </div>
         </div>
       </div>

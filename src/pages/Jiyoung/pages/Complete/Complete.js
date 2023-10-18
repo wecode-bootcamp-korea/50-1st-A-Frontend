@@ -27,7 +27,7 @@ const Complete = () => {
         </div>
         <div className="contentFooter">
           <div className="btnArea btnFull">
-            <Button btnPrimary btnValue="확인" />
+            <Button btnPrimary btnLabel="확인" />
           </div>
         </div>
       </div>
