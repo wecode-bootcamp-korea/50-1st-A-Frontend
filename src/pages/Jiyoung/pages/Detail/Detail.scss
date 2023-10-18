@@ -1,0 +1,157 @@
+@import '../../scss/variables';
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px);
+
+  .threadArea {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 8px;
+    border-bottom: 1px solid $gray90;
+
+    .threadTop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .threadProfile {
+        display: flex;
+        align-items: center;
+      }
+
+      img {
+        display: block;
+        width: 48px;
+        height: 48px;
+        border: 1px solid $gray88;
+        border-radius: 50%;
+      }
+
+      .threadName {
+        display: block;
+        margin-left: 16px;
+        font-weight: 700;
+        font-size: 20px;
+      }
+
+      .threadDate {
+        span {
+          color: $grey60;
+        }
+      }
+    }
+
+    .threadBody {
+      padding-top: 16px;
+
+      .threadText {
+        font-size: 20px;
+        line-height: 28px;
+      }
+    }
+
+    .threadFooter {
+      padding-top: 16px;
+
+      .threadComment {
+        color: $grey60;
+      }
+    }
+  }
+
+  .commentArea {
+    height: 100%;
+    padding: 24px 0 40px;
+
+    .commentWrite {
+      display: flex;
+      align-items: center;
+
+      .formInput {
+        width: 100%;
+
+        .formControl {
+          width: 100%;
+          height: 50px;
+        }
+
+        ~ .btn {
+          margin-left: 8px;
+        }
+      }
+
+      ~ .commentList {
+        padding-top: 24px;
+      }
+    }
+
+    .commentList {
+      height: calc(100vh - 50vh);
+      overflow-y: auto;
+
+      .commentItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        ~ .commentItem {
+          padding-top: 24px;
+        }
+
+        .commentLeft {
+          display: flex;
+
+          .commentProfile {
+            img {
+              display: block;
+              width: 32px;
+              height: 32px;
+              border: 1px solid $gray88;
+              border-radius: 50%;
+            }
+          }
+
+          .commentInfo {
+            display: flex;
+            flex-direction: column;
+            padding-left: 24px;
+
+            .commentName {
+              display: block;
+              font-weight: 700;
+            }
+
+            .commentText {
+              display: block;
+              padding-top: 4px;
+            }
+          }
+        }
+
+        .commentRight {
+          display: flex;
+          align-items: center;
+          .commentDate {
+            color: $grey60;
+
+            ~ .btn-area {
+              display: flex;
+
+              .btn {
+                min-width: auto;
+                margin-left: 12px;
+                padding: 0;
+              }
+            }
+          }
+
+          .btnDelete {
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+}

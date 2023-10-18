@@ -133,7 +133,9 @@ a,
 a:active,
 a:focus,
 button {
+  all: unset;
   text-decoration: none;
+  cursor: pointer;
 }
 button {
   padding: 0;
