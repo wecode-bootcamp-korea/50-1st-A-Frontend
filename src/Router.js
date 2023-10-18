@@ -4,6 +4,8 @@ import Login from './pages/feature/heehyun/Login/Login';
 import Main from './pages/feature/heehyun/Main/Main';
 import SingUp from './pages/feature/heehyun/Join/Join';
 import Complete from './pages/feature/heehyun/Complete/Complete';
+import PostAdd from './pages/feature/heehyun/PostAdd/PostAdd';
+import PostEdit from './pages/feature/heehyun/PostEdit/PostEdit';
 
 const Router = () => {
   return (
@@ -13,6 +15,8 @@ const Router = () => {
         <Route path="/main" element={<Main />} />
         <Route path="/join" element={<SingUp />} />
         <Route path="/complete" element={<Complete />} />
+        <Route path="/postAdd" element={<PostAdd />} />
+        <Route path="/postEdit" element={<PostEdit />} />
       </Routes>
     </BrowserRouter>
   );
