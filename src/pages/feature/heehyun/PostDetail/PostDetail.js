@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './PostDetail.scss';
 import backArrow from './Back_arrow.png';
 
 const PostDetail = () => {
+  const [comment, setComment] = useState('');
+
+  const setChangeComment = (event) => {
+    setComment(event.target.value);
+  };
+
+  // const postButtonHandler = () => {
+
+  // };
+
   return (
     <div className="postDetail">
       <div className="container">
@@ -34,7 +44,11 @@ const PostDetail = () => {
         </div>
 
         <div className="replyAdd">
-          <input type="text" placeholder="댓글을 작성해주세요." />
+          <input
+            type="text"
+            placeholder="댓글을 작성해주세요."
+            onChange={setChangeComment}
+          />
           <button>댓글 게시</button>
         </div>
 

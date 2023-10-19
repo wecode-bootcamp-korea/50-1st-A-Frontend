@@ -1,11 +1,46 @@
 import React from 'react';
 import './Main.scss';
+import { useNavigate } from 'react-router-dom';
+import Like from './heart.png';
+import Reply from './reply.png';
+// import LikeFull from './heartFull.png';
 
 const Main = () => {
+  const navigate = useNavigate();
+
+  const goToWrite = () => {
+    navigate('/postAdd');
+  };
+
   return (
     <div className="main">
       <div className="container">
         <div className="postList">
+          {/* {data.map((user) => (
+            <div className="post">
+              <div className="postHeader">
+                <div className="profile">
+                  <img
+                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                    alt="프로필 사진"
+                  />
+                  <div>{user.nickname}</div>
+                </div>
+                <div className="date">{user.date}</div>
+              </div>
+              <div className="postBody">{user.comments}</div>
+              <div className="postFooter">
+                <div className="info">
+                  <div>좋아요 {user.likeCount}</div>
+                  <div>댓글 {user.commentCount}</div>
+                </div>
+                <div className="postMu">
+                  <img src={Like} alt="좋아요" />
+                  <img src={Reply} alt="댓글" />
+                </div>
+              </div>
+            </div>
+          ))} */}
           <div className="post">
             <div className="postHeader">
               <div className="profile">
@@ -23,11 +58,22 @@ const Main = () => {
               믿는다. 이 현상은 1966년 MIT 교수 조셉 웨이젠바움이 만든 챗봇인
               ELIZA의 이름을 따서 명명되었다.
             </div>
-            <div className="postFooter">댓글 00</div>
+            <div className="postFooter">
+              <div className="info">
+                <div>좋아요 0</div>
+                <div>댓글 0</div>
+              </div>
+              <div className="postMu">
+                <img src={Like} alt="좋아요" />
+                <img src={Reply} alt="댓글" />
+              </div>
+            </div>
           </div>
         </div>
         <div className="action">
-          <button className="writingBtn">글 쓰기</button>
+          <button className="writingBtn" onClick={goToWrite}>
+            글 쓰기
+          </button>
         </div>
       </div>
     </div>

@@ -1,7 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './PostAdd.scss';
+import { useNavigate } from 'react-router-dom';
 
 const PostAdd = () => {
+  const token = localStorage.getItem('TOKEN');
+
+  const navigate = useNavigate();
+
+  const [contents, setContents] = useState('');
+
+  const setChangeContents = (event) => {
+    setContents(event.target.value);
+  };
+
+  const goToBack = () => {
+    navigate('/main');
+  };
+
+  const letPost = () => {
+    fetch('http://10.58.52.224:8000/posts/insertThread', {
+      method: 'POST',
+      headers: {
+        Authorization: token,
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        content: contents,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message === '') {
+          alert('게시글이 등록되었습니다.');
+          navigate('/main');
+        }
+      });
+  };
+
   return (
     <div className="postAdd">
       <div className="container">
@@ -17,12 +52,18 @@ const PostAdd = () => {
               className="contentBody"
               type="text"
               placeholder="스레드를 시작하세요."
+              onChange={setChangeContents}
+              value={contents}
             />
           </div>
         </div>
         <div className="action">
-          <button className="cancelBtn">취소</button>
-          <button className="postBtn">게시</button>
+          <button className="cancelBtn" onClick={goToBack}>
+            취소
+          </button>
+          <button className="postBtn" onClick={letPost}>
+            게시
+          </button>
         </div>
       </div>
     </div>
