@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import './PostDetail.scss';
 import backArrow from './Back_arrow.png';
+import { useNavigate } from 'react-router-dom';
 
 const PostDetail = () => {
+  const navigate = useNavigate();
+
+  const token = localStorage.getItem('TOKEN');
+
   const [comment, setComment] = useState('');
 
   const setChangeComment = (event) => {
@@ -10,7 +15,23 @@ const PostDetail = () => {
   };
 
   // const postButtonHandler = () => {
-
+  //   fetch('http://10.58.52.224:8000/posts/insertThread', {
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization: token,
+  //       'Content-Type': 'application/json;charset=utf-8',
+  //     },
+  //     body: JSON.stringify({
+  //       content: comment,
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.message === '') {
+  //         alert('게시글이 등록되었습니다.');
+  //         navigate('/main');
+  //       }
+  //     });
   // };
 
   return (

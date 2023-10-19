@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Main.scss';
 import { useNavigate } from 'react-router-dom';
 import Like from './heart.png';
@@ -6,6 +6,13 @@ import Reply from './reply.png';
 // import LikeFull from './heartFull.png';
 
 const Main = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch('http://10.58.52.224:8000/posts/selectThread')
+      .then((res) => res.json())
+      .then((message) => setData(message.message));
+  }, []);
+
   const navigate = useNavigate();
 
   const goToWrite = () => {
@@ -16,23 +23,20 @@ const Main = () => {
     <div className="main">
       <div className="container">
         <div className="postList">
-          {/* {data.map((user) => (
-            <div className="post">
+          {data.reverse().map((user, i) => (
+            <div className="post" key={i}>
               <div className="postHeader">
                 <div className="profile">
-                  <img
-                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                    alt="프로필 사진"
-                  />
-                  <div>{user.nickname}</div>
+                  <img src={user.profile_image} alt="프로필 사진" />
+                  <div>{user.name}</div>
                 </div>
-                <div className="date">{user.date}</div>
+                <div className="date">{user.created_at}</div>
               </div>
-              <div className="postBody">{user.comments}</div>
+              <div className="postBody">{user.content}</div>
               <div className="postFooter">
                 <div className="info">
-                  <div>좋아요 {user.likeCount}</div>
-                  <div>댓글 {user.commentCount}</div>
+                  <div>좋아요 00</div>
+                  <div>댓글 00</div>
                 </div>
                 <div className="postMu">
                   <img src={Like} alt="좋아요" />
@@ -40,8 +44,8 @@ const Main = () => {
                 </div>
               </div>
             </div>
-          ))} */}
-          <div className="post">
+          ))}{' '}
+          {/* <div className="post">
             <div className="postHeader">
               <div className="profile">
                 <img
@@ -68,7 +72,7 @@ const Main = () => {
                 <img src={Reply} alt="댓글" />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="action">
           <button className="writingBtn" onClick={goToWrite}>

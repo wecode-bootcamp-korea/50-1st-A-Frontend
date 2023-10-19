@@ -30,7 +30,7 @@ const PostAdd = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === '') {
+        if (data.message === 'thread 등록성공!') {
           alert('게시글이 등록되었습니다.');
           navigate('/main');
         }
