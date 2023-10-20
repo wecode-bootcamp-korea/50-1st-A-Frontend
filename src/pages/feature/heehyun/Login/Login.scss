@@ -1,0 +1,106 @@
+.login {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .logo-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex: 1 0 0;
+    align-self: stretch;
+  }
+
+  .email-password {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: stretch;
+    width: 100%;
+    padding: 0 24px;
+    gap: 8px;
+
+    .input {
+      border: 1px solid #E0E0E0;
+      padding: 19px 0 15px 16px;
+      border-radius: 6px;
+      color: #999;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      font-feature-settings: 'clig' off, 'liga' off;
+    }
+
+    .loginbtn {
+      border: none;
+      background-color: #CCC;
+      color: white;
+      height: 35px;
+      border-radius: 6px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      font-size: 18px;
+      font-weight: 800;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+
+    .loginbtn-access {
+      border: none;
+      background-color: #2d71f7;
+      color: white;
+      height: 35px;
+      border-radius: 6px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      font-size: 18px;
+      font-weight: 800;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      cursor: pointer;
+
+      &:active,
+      &:hover {
+        background-color: #083E7F;
+      }
+    }
+
+
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 240px;
+  margin-bottom: 40px;
+  // @include flexSort(row, 0, 0);
+
+  .btn {
+    border: none;
+    width: 96px;
+    background-color: white;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  div {
+    color: #E0E0E0;
+    height: 16px;
+  }
+}
