@@ -34,8 +34,11 @@
         gap: 8px;
         flex: 1 0 0;
         align-self: stretch;
-        font-size: 20px;
-        font-weight: 700;
+
+        div {
+          font-size: 20px;
+          font-weight: 700;
+        }
 
         .contentBody {
           display: flex;
@@ -46,6 +49,9 @@
           align-self: stretch;
           border-radius: 6px;
           border: 1px solid #E0E0E0;
+          font-size: 16px;
+          line-height: 22px;
+          color: #999;
         }
       }
     }

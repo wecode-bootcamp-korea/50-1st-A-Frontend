@@ -45,7 +45,7 @@ const PostEdit = () => {
           />
 
           <div className="content">
-            Name
+            <div>Name</div>
             <input
               className="contentBody"
               type="text"

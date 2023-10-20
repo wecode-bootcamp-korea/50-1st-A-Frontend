@@ -52,7 +52,7 @@ const Join = () => {
     } else if (password.length < 10) {
       alert('비밀번호는 10자리 이상으로 설정해주세요.');
     } else {
-      fetch('http://10.58.52.224:8000/users/signup', {
+      fetch('http://10.58.52.215:8000/user/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -67,21 +67,11 @@ const Join = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.message === 'sign-up successfully') {
+          if (data.message === 'SIGNUP SUCCESS') {
             alert('회원가입이 완료되었습니다.');
             navigate('/Complete');
           }
         });
-
-      // const newUser = {
-      //   id: user.length + 1,
-      //   email: email,
-      //   password: password,
-      //   nickname: nickname,
-      //   mobileNumber: mobileNumber,
-      // };
-      // alert('회원가입이 완료되었습니다!');
-      // navigate('/Complete');
     }
   };
 

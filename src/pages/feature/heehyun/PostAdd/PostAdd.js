@@ -18,7 +18,7 @@ const PostAdd = () => {
   };
 
   const letPost = () => {
-    fetch('http://10.58.52.224:8000/posts/insertThread', {
+    fetch('http://10.58.52.215:8000/writePost', {
       method: 'POST',
       headers: {
         Authorization: token,
@@ -30,7 +30,7 @@ const PostAdd = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === 'thread 등록성공!') {
+        if (data.message === 'Create Post SUCCESS!!!') {
           alert('게시글이 등록되었습니다.');
           navigate('/main');
         }
@@ -47,7 +47,7 @@ const PostAdd = () => {
           />
 
           <div className="content">
-            Name
+            <div>Name</div>
             <input
               className="contentBody"
               type="text"

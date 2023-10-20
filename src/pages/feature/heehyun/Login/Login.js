@@ -29,7 +29,7 @@ const Login = () => {
 
   // 로그인 버튼을 눌렀을때 이메일과 비밀번호를 저장하면서 동시에 메인 페이지 이동
   const goToMain = () => {
-    fetch('http://10.58.52.224:8000/users/login', {
+    fetch('http://10.58.52.215:8000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -44,8 +44,8 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === 'login success') {
-          localStorage.setItem('TOKEN', data.token);
+        if (data.message === 'LOGIN SUCCESS') {
+          localStorage.setItem('TOKEN', data.jwtToken);
           navigate('/main'); // 로그인 성공시 메인화면 이동
         } else if (data.message === 'USER_NOT_FOUND') {
           alert(
