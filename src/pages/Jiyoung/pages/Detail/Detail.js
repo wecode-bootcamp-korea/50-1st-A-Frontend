@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import '../../scss/style.scss';
@@ -6,9 +6,34 @@ import profile from '../../../../assets/sample.png';
 
 const Detail = () => {
   const navigate = useNavigate();
+  const [comment, setComment] = useState('');
+  // const [deleteValue, setDeleteValue] = useState(true);
   const backBtn = () => {
     navigate('/jiyoung-list');
   };
+
+  const commeneClick = () => {
+    fetch('http://10.58.52.85:8000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: comment,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message === 'LOGIN_SUCCSESS') {
+          localStorage.setItem('token', data.accessToken);
+          alert('로그인 성공!');
+        } else {
+          alert('로그인 실패!');
+        }
+      });
+  };
+
+  const btnDelete = () => {};
   return (
     <div className="page">
       <header className="header">
@@ -55,9 +80,16 @@ const Detail = () => {
                   type="text"
                   className="formControl"
                   placeholder="댓글을 작성해주세요."
+                  value={comment}
+                  onChange={(event) => setComment(event.target.value)}
                 />
               </div>
-              <Button btnSecondary btnMd btnLabel="댓글 게시" />
+              <Button
+                btnSecondary
+                btnMd
+                btnLabel="댓글 게시"
+                onClick={commeneClick}
+              />
             </div>
             <ul className="commentList">
               {COMMENT_LIST.map((comment) => (
@@ -73,8 +105,12 @@ const Detail = () => {
                   </div>
                   <div className="commentRight">
                     <span className="commentDate">{comment.date}</span>
-                    <div className="btn-area">
-                      <button type="button" className="btn btnDelete">
+                    <div className="btnArea">
+                      <button
+                        type="button"
+                        className="btn btnDelete"
+                        onClick={btnDelete}
+                      >
                         삭제
                       </button>
                       <button type="button" className="btn">

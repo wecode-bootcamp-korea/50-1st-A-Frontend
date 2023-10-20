@@ -25,7 +25,7 @@ const Login = () => {
   const isUserInputValid = emailCheck() && userPw.length >= 5;
 
   const loginBtn = () => {
-    fetch('http://10.58.52.85:8000/login', {
+    fetch('http://10.58.52.224:8000/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -37,8 +37,8 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === 'LOGIN_SUCCSESS') {
-          localStorage.setItem('token', data.accessToken);
+        if (data.message === 'login success') {
+          localStorage.setItem('token', data.token);
           alert('로그인 성공!');
         } else {
           alert('로그인 실패!');

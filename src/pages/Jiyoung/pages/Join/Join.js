@@ -7,6 +7,8 @@ const Join = () => {
   const navigate = useNavigate();
   const [userId, setUserId] = useState('');
   const [userPw, setUserPw] = useState('');
+  const [userNick, setUserNick] = useState('');
+  // const [userRePw, setUserRePw] = useState('');
   const emailPattern =
     /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 
@@ -22,10 +24,10 @@ const Join = () => {
     }
   };
 
-  const isUserInputValid = emailCheck() && userPw.length >= 5;
+  const isUserInputValid = emailCheck() && userPw.length >= 10;
 
   const completeBtn = () => {
-    fetch('http://10.58.52.85:8000/signUp', {
+    fetch('http://10.58.52.224:8000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -33,11 +35,12 @@ const Join = () => {
       body: JSON.stringify({
         email: userId,
         password: userPw,
+        nickname: userNick,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === 'JOIN_SUCCSESS') {
+        if (data.message === 'sign-up successfully') {
           navigate('/jiyoung-complete');
         } else {
           alert('회원가입 실패!');
@@ -97,6 +100,10 @@ const Join = () => {
                   <input
                     type="password"
                     className="formControl"
+                    // onChange={(event) => setUserRePw(event.target.value)}
+                    // value={
+                    //   userRePw === userPw ? isUserInputValid : !isUserInputValid
+                    // }
                     placeholder="비밀번호 확인"
                   />
                 </div>
@@ -115,6 +122,8 @@ const Join = () => {
                     type="text"
                     className="formControl"
                     placeholder="닉네임"
+                    onChange={(event) => setUserNick(event.target.value)}
+                    value={userNick}
                   />
                 </div>
               </fieldset>
