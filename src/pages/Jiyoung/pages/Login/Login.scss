@@ -1,0 +1,42 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .loginLogo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &::before {
+      content: '';
+      display: flex;
+      width: 118px;
+      height: 143px;
+      background: url(../../images/visual/logo.png) no-repeat;
+    }
+
+    &::after {
+      content: '';
+      display: flex;
+      margin-top: 24px;
+      width: 144px;
+      height: 32px;
+      background: url(../../images/visual/logo_wecode.png) no-repeat;
+    }
+  }
+
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 24px;
+  }
+
+  .btnArea {
+    padding-top: 16px;
+  }
+}

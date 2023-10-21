@@ -1,0 +1,54 @@
+@import '../../scss/variables';
+
+.add {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 40px;
+
+  .addArea {
+    display: flex;
+    height: 100%;
+    padding-bottom: 32px;
+    border-bottom: 1px solid $gray88;
+
+    .addLeft {
+      display: flex;
+
+      img {
+        display: block;
+        width: 48px;
+        height: 48px;
+        border: 1px solid $gray88;
+        border-radius: 50%;
+      }
+    }
+
+    .addRight {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-left: 24px;
+
+      .adddName {
+        display: block;
+        font-weight: 700;
+        font-size: 20px;
+      }
+
+      .addText {
+        width: 100%;
+        height: 100%;
+        margin-top: 8px;
+        padding: 16px;
+        border-radius: 6px;
+        border: 1px solid $gray88;
+        resize: none;
+      }
+    }
+  }
+
+  .btnArea {
+    padding-top: 24px;
+  }
+}
